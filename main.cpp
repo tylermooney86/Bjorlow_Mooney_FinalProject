@@ -13,9 +13,9 @@ void printIntro();
 int main()
 {
     HashTable h;
-
+	
     printIntro();
-
+    
     string menuNum = "0";
 
     ifstream inFile;
@@ -23,17 +23,19 @@ int main()
 
     //filestream
     inFile.open("movies.txt");
-
+	
     if(inFile.good())
     {
-        char* tmp;
+        char tmp[100];
         string tmpstring;
         int ranking, year, quantity;
         string name, genre;
 
         while(!inFile.eof())
         {
+			
             inFile.getline(tmp,256,',');
+    
             ranking = atoi(tmp);
 
             inFile.getline(tmp,256,',');
