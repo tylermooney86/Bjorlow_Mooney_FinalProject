@@ -405,7 +405,7 @@ void HashTable::adjustRankUp(int ranking)
 //take user input for quantity of movie
 void HashTable::changeQuantity(int quantity, std::string name)
 {
-
+    ifIn=false;
     for (int i = 0; i < tableSize; i++)
     {
         HashElem *tmp = hashTable[i];
@@ -416,9 +416,15 @@ void HashTable::changeQuantity(int quantity, std::string name)
                 if(tmp->title == name)
                 {
                     tmp->quantity = quantity;
+                    ifIn=true;
                     break;
                 }
                 tmp = tmp->next;
+            }
+            if(ifIn==false)
+            {
+                cout<<"Movie Not In Inventory"<<endl;
+                break;
             }
         }
     }
@@ -427,6 +433,7 @@ void HashTable::changeQuantity(int quantity, std::string name)
 void HashTable::changeGenre(std::string genre, std::string name)
 {
 
+    ifIn=false;
     for (int i = 0; i < tableSize; i++)
     {
         HashElem *tmp = hashTable[i];
@@ -437,10 +444,17 @@ void HashTable::changeGenre(std::string genre, std::string name)
                 if(tmp->title == name)
                 {
                     tmp->genre = genre;
+                    ifIn=true;
                     break;
                 }
                 tmp = tmp->next;
             }
+            if(ifIn==false)
+            {
+                cout<<"Movie Not In Inventory"<<endl;
+                break;
+            }
+
         }
     }
 }
