@@ -88,6 +88,7 @@ class HashTable
 		void adjustRankUp(int ranking);
 		HashElem* hashTable[10];
 		bool checkTable();
+		bool ifIn;
 		int MAX_RANK = 1;
 
 };
